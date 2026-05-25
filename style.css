@@ -982,3 +982,37 @@
   opacity: 1;
   transform: translateY(-3px);
 }
+
+/* ===================== SERVICE CARD ICON LAYOUT ===================== */
+.service-card-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  height: 100%;
+}
+.service-card-text {
+  flex: 1;
+  min-width: 0;
+}
+.service-card-icon {
+  flex-shrink: 0;
+  width: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.service-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5));
+}
+.service-card:hover .service-svg {
+  transform: translateY(-4px) rotate(2deg);
+}
+@media (max-width: 640px) {
+  .service-card-body { flex-direction: column; }
+  .service-card-icon { width: 90px; align-self: flex-end; }
+}
