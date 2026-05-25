@@ -43,7 +43,7 @@ nav {
 .hero-lbl::before, .hero-lbl::after { content: ''; width: 28px; height: 1px; background: var(--accent); }
 .hero-title { font-family: var(--font-d); font-weight: 900; font-size: clamp(2rem,4vw,4rem); line-height: 1; letter-spacing: -.04em; margin-bottom: .5rem; }
 .hero-title em { font-style: normal; color: var(--accent); }
-.hero-sub { color: var(--muted); font-size: .88rem; }
+.hero-sub { color: var(--muted); font-size: .88rem; padding: 0 30px; box-sizing: border-box; max-width: 100%; }
 
 /* FEED */
 .feed {
@@ -74,8 +74,9 @@ nav {
 .divider {
   display: flex;
   justify-content: center;
-  padding: 1.5rem 0;
+  padding: 1.5rem 30px;
   width: 100%;
+  box-sizing: border-box;
 }
 .divider svg {
   max-width: 900px;
