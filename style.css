@@ -698,8 +698,8 @@
 .hero-split {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 3rem;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 2rem;
   align-items: center;
   width: 100%;
 }
@@ -722,12 +722,20 @@
   align-items: flex-start;
   gap: 2.5rem;
   padding-top: 1rem;
+  margin-left: auto;
+  width: 100%;
 }
 .hero-actions {
   display: flex;
   flex-direction: row;
   gap: 1rem;
   flex-wrap: wrap;
+  width: 100%;
+}
+.hero-actions .btn-primary,
+.hero-actions .btn-ghost {
+  flex: 1;
+  text-align: center;
 }
 
 /* RIGHT COLUMN — 3D */
