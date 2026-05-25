@@ -1066,3 +1066,21 @@
   .service-card-body { flex-direction: column; }
   .service-card-icon { width: 90px; align-self: flex-end; }
 }
+
+/* Portfolio nav button */
+.nav-portfolio {
+  color: var(--text);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, color 0.2s;
+}
+.nav-portfolio:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
