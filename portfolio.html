@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Портфолио — WEB.EKB</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700;900&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #0a0a0f;
+  --bg2: #0f1018;
+  --accent: #5ab4f5;
+  --text: #f0ede8;
+  --muted: #666;
+  --border: rgba(90,180,245,0.1);
+  --font-display: 'Unbounded', sans-serif;
+  --font-body: 'Onest', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: none;
+}
+.cursor { position: fixed; width: 12px; height: 12px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); mix-blend-mode: difference; transition: transform 0.15s; }
+.cursor-ring { position: fixed; width: 40px; height: 40px; border: 1px solid var(--accent); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); opacity: 0.4; transition: transform 0.1s ease-out; }
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.5rem 4rem;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(10,10,15,0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.logo { text-decoration: none; display: flex; align-items: center; }
+.logo-img { height: 32px; width: auto; display: block; }
+.nav-right { display: flex; gap: 1rem; align-items: center; }
+.nav-back {
+  color: var(--muted); text-decoration: none;
+  font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: var(--text); }
+.nav-cta {
+  background: var(--accent); color: #fff;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.75rem 1.5rem; border: none; cursor: none; text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(90,180,245,0.3); }
+
+/* HERO SECTION */
+.pf-hero {
+  padding: 9rem 4rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.pf-hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 30%, rgba(90,180,245,0.06) 0%, transparent 70%);
+}
+.pf-hero-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(90,180,245,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(90,180,245,0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.pf-hero-label {
+  font-size: 0.7rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;
+  position: relative;
+}
+.pf-hero-label::before { content: ''; width: 30px; height: 1px; background: var(--accent); }
+.pf-hero-title {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.95; letter-spacing: -0.04em;
+  margin-bottom: 1rem; position: relative;
+}
+.pf-hero-title em { font-style: normal; color: var(--accent); }
+.pf-hero-sub {
+  color: var(--muted); font-size: 1rem; max-width: 500px;
+  line-height: 1.7; margin-bottom: 4rem; position: relative;
+}
+
+/* 3 FEATURED BROWSER MOCKUPS */
+.pf-hero-mockups {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 1.5rem;
+  align-items: end;
+  position: relative;
+}
+.pf-hero-item {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+.pf-hero-item:nth-child(2) { transform: translateY(40px); }
+.pf-hero-item:nth-child(3) { transform: translateY(70px); }
+.pf-browser {
+  background: #13161f;
+  border-radius: 12px;
+  border: 1px solid rgba(90,180,245,0.2);
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 40px rgba(90,180,245,0.06);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.pf-browser:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.8), 0 0 60px rgba(90,180,245,0.12);
+}
+.pf-browser-bar {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 14px; background: #0d0f17;
+  border-bottom: 1px solid rgba(90,180,245,0.1);
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.dot.r { background: #ff5f57; }
+.dot.y { background: #febc2e; }
+.dot.g { background: #28c840; }
+.pf-browser-url {
+  margin-left: 8px; flex: 1; text-align: center;
+  background: rgba(255,255,255,0.05); border-radius: 4px;
+  padding: 3px 12px; font-size: 10px; color: rgba(255,255,255,0.3);
+  font-family: var(--font-body);
+}
+.pf-browser-screen { overflow: hidden; aspect-ratio: 16/10; }
+.pf-browser-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+/* COUNTER BAR */
+.pf-counter {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 3rem 4rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+}
+.pf-counter-item { text-align: center; }
+.pf-counter-num {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: 3rem; letter-spacing: -0.04em; color: var(--accent);
+  line-height: 1;
+}
+.pf-counter-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+
+/* MASONRY GRID */
+.pf-gallery-wrap { padding: 4rem; background: var(--bg); }
+.pf-gallery-title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2.5rem); letter-spacing: -0.03em;
+  margin-bottom: 2.5rem; color: var(--text);
+}
+.pf-gallery {
+  columns: 4;
+  column-gap: 1rem;
+}
+.pf-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: none;
+  border: 1px solid rgba(90,180,245,0.08);
+}
+.pf-item img {
+  width: 100%; display: block;
+  transition: transform 0.5s ease;
+}
+.pf-item:hover img { transform: scale(1.04); }
+.pf-item-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,10,15,0.8) 0%, transparent 50%);
+  opacity: 0; transition: opacity 0.3s;
+  display: flex; align-items: flex-end; padding: 1rem;
+}
+.pf-item:hover .pf-item-overlay { opacity: 1; }
+.pf-item-num {
+  font-family: var(--font-display); font-size: 0.65rem;
+  font-weight: 700; color: var(--accent); letter-spacing: 0.1em;
+}
+/* Wide items span 2 columns */
+.pf-wide { break-inside: avoid; }
+
+/* CTA SECTION */
+.pf-cta {
+  padding: 6rem 4rem; text-align: center;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+}
+.pf-cta-title {
+  font-family: var(--font-display); font-weight: 900;
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: -0.04em; margin-bottom: 1rem;
+}
+.pf-cta-title em { font-style: normal; color: var(--accent); }
+.pf-cta-sub { color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; }
+.btn-primary {
+  background: var(--accent); color: #fff;
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 1.1rem 2.5rem; border: none; cursor: none;
+  text-decoration: none; display: inline-block;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(90,180,245,0.35); }
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.95);
+  display: none; align-items: center; justify-content: center;
+  padding: 2rem;
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 90vw; max-height: 90vh;
+  object-fit: contain; border-radius: 8px;
+  box-shadow: 0 0 80px rgba(90,180,245,0.15);
+}
+.lb-close {
+  position: absolute; top: 2rem; right: 2rem;
+  font-size: 2rem; color: var(--muted); cursor: none;
+  line-height: 1; transition: color 0.2s;
+}
+.lb-close:hover { color: var(--text); }
+.lb-prev, .lb-next {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  font-size: 2rem; color: var(--muted); cursor: none;
+  padding: 1rem; transition: color 0.2s; user-select: none;
+}
+.lb-prev { left: 1rem; }
+.lb-next { right: 1rem; }
+.lb-prev:hover, .lb-next:hover { color: var(--accent); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  nav { padding: 1.25rem 2rem; }
+  .pf-hero { padding: 8rem 2rem 3rem; }
+  .pf-hero-mockups { grid-template-columns: 1fr 1fr; }
+  .pf-hero-item:nth-child(3) { display: none; }
+  .pf-gallery-wrap { padding: 3rem 2rem; }
+  .pf-gallery { columns: 3; }
+  .pf-counter { padding: 2rem; }
+  .pf-cta { padding: 4rem 2rem; }
+}
+@media (max-width: 640px) {
+  nav { padding: 1rem 1.25rem; }
+  .pf-hero { padding: 7rem 1.25rem 2rem; }
+  .pf-hero-mockups { grid-template-columns: 1fr; }
+  .pf-hero-item:nth-child(2), .pf-hero-item:nth-child(3) { display: none; }
+  .pf-gallery { columns: 2; }
+  .pf-counter { flex-wrap: wrap; gap: 2rem; justify-content: center; }
+  .pf-gallery-wrap { padding: 2rem 1.25rem; }
+  .pf-cta { padding: 3rem 1.25rem; }
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav>
+  <a href="index.html" class="logo"><img src="logo.svg" alt="WEB.EKB" class="logo-img"></a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← Главная</a>
+    <a href="index.html#contact" class="nav-cta">Оставить заявку</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="pf-hero">
+  <div class="pf-hero-bg"></div>
+  <div class="pf-hero-grid"></div>
+  <div class="pf-hero-label">Наши работы</div>
+  <h1 class="pf-hero-title">68 проектов,<br><em>которые работают</em></h1>
+  <p class="pf-hero-sub">Сайты для фотографов, бизнеса, экспертов и магазинов — каждый под задачу клиента.</p>
+  <div class="pf-hero-mockups">
+    <div class="pf-hero-item" style="animation-delay:0.0s">
+        <div class="pf-browser">
+          <div class="pf-browser-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <div class="pf-browser-url">webekb.ru</div>
+          </div>
+          <div class="pf-browser-screen">
+            <img src="img/1.png" alt="Проект" loading="lazy">
+          </div>
+        </div>
+      </div>
+<div class="pf-hero-item" style="animation-delay:0.15s">
+        <div class="pf-browser">
+          <div class="pf-browser-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <div class="pf-browser-url">webekb.ru</div>
+          </div>
+          <div class="pf-browser-screen">
+            <img src="img/2.png" alt="Проект" loading="lazy">
+          </div>
+        </div>
+      </div>
+<div class="pf-hero-item" style="animation-delay:0.3s">
+        <div class="pf-browser">
+          <div class="pf-browser-bar">
+            <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+            <div class="pf-browser-url">webekb.ru</div>
+          </div>
+          <div class="pf-browser-screen">
+            <img src="img/3.png" alt="Проект" loading="lazy">
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- COUNTER -->
+<div class="pf-counter">
+  <div class="pf-counter-item">
+    <div class="pf-counter-num">68</div>
+    <div class="pf-counter-label">проектов сдано</div>
+  </div>
+  <div class="pf-counter-item">
+    <div class="pf-counter-num">5+</div>
+    <div class="pf-counter-label">лет опыта</div>
+  </div>
+  <div class="pf-counter-item">
+    <div class="pf-counter-num">4.9</div>
+    <div class="pf-counter-label">средняя оценка</div>
+  </div>
+  <div class="pf-counter-item">
+    <div class="pf-counter-num">21</div>
+    <div class="pf-counter-label">день — средний срок</div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="pf-gallery-wrap">
+  <div class="pf-gallery-title">Все работы</div>
+  <div class="pf-gallery">
+      <div class="pf-item pf-wide" onclick="openLightbox('4.png')">
+        <img src="img/4.png" alt="Проект 4" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#04</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('5.png')">
+        <img src="img/5.png" alt="Проект 5" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#05</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('6.png')">
+        <img src="img/6.png" alt="Проект 6" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#06</span>
+        </div>
+      </div>
+      <div class="pf-item pf-tall" onclick="openLightbox('7.png')">
+        <img src="img/7.png" alt="Проект 7" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#07</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('8.png')">
+        <img src="img/8.png" alt="Проект 8" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#08</span>
+        </div>
+      </div>
+      <div class="pf-item pf-wide" onclick="openLightbox('9.png')">
+        <img src="img/9.png" alt="Проект 9" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#09</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('10.png')">
+        <img src="img/10.png" alt="Проект 10" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#10</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('11.png')">
+        <img src="img/11.png" alt="Проект 11" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#11</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('12.png')">
+        <img src="img/12.png" alt="Проект 12" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#12</span>
+        </div>
+      </div>
+      <div class="pf-item pf-tall" onclick="openLightbox('13.png')">
+        <img src="img/13.png" alt="Проект 13" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#13</span>
+        </div>
+      </div>
+      <div class="pf-item pf-wide" onclick="openLightbox('14.png')">
+        <img src="img/14.png" alt="Проект 14" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#14</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('15.png')">
+        <img src="img/15.png" alt="Проект 15" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#15</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('16.png')">
+        <img src="img/16.png" alt="Проект 16" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#16</span>
+        </div>
+      </div>
+      <div class="pf-item pf-tall" onclick="openLightbox('17.png')">
+        <img src="img/17.png" alt="Проект 17" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#17</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('18.png')">
+        <img src="img/18.png" alt="Проект 18" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#18</span>
+        </div>
+      </div>
+      <div class="pf-item pf-wide" onclick="openLightbox('19.png')">
+        <img src="img/19.png" alt="Проект 19" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#19</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('20.png')">
+        <img src="img/20.png" alt="Проект 20" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#20</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('22.png')">
+        <img src="img/22.png" alt="Проект 21" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#21</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('23.png')">
+        <img src="img/23.png" alt="Проект 22" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#22</span>
+        </div>
+      </div>
+      <div class="pf-item pf-tall" onclick="openLightbox('24.png')">
+        <img src="img/24.png" alt="Проект 23" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#23</span>
+        </div>
+      </div>
+      <div class="pf-item pf-wide" onclick="openLightbox('25.png')">
+        <img src="img/25.png" alt="Проект 24" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#24</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('26.png')">
+        <img src="img/26.png" alt="Проект 25" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#25</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('27.png')">
+        <img src="img/27.png" alt="Проект 26" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#26</span>
+        </div>
+      </div>
+      <div class="pf-item pf-tall" onclick="openLightbox('28.png')">
+        <img src="img/28.png" alt="Проект 27" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#27</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('29.png')">
+        <img src="img/29.png" alt="Проект 28" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#28</span>
+        </div>
+      </div>
+      <div class="pf-item pf-wide" onclick="openLightbox('30.png')">
+        <img src="img/30.png" alt="Проект 29" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#29</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('31.png')">
+        <img src="img/31.png" alt="Проект 30" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#30</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('32.png')">
+        <img src="img/32.png" alt="Проект 31" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#31</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('33.png')">
+        <img src="img/33.png" alt="Проект 32" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#32</span>
+        </div>
+      </div>
+      <div class="pf-item pf-tall" onclick="openLightbox('34.png')">
+        <img src="img/34.png" alt="Проект 33" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#33</span>
+        </div>
+      </div>
+      <div class="pf-item pf-wide" onclick="openLightbox('35.png')">
+        <img src="img/35.png" alt="Проект 34" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#34</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('36.png')">
+        <img src="img/36.png" alt="Проект 35" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#35</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('37.png')">
+        <img src="img/37.png" alt="Проект 36" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#36</span>
+        </div>
+      </div>
+      <div class="pf-item pf-tall" onclick="openLightbox('38.png')">
+        <img src="img/38.png" alt="Проект 37" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#37</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('39.png')">
+        <img src="img/39.png" alt="Проект 38" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#38</span>
+        </div>
+      </div>
+      <div class="pf-item pf-wide" onclick="openLightbox('40.png')">
+        <img src="img/40.png" alt="Проект 39" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#39</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('41.png')">
+        <img src="img/41.png" alt="Проект 40" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#40</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('42.png')">
+        <img src="img/42.png" alt="Проект 41" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#41</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('44.png')">
+        <img src="img/44.png" alt="Проект 42" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#42</span>
+        </div>
+      </div>
+      <div class="pf-item pf-tall" onclick="openLightbox('45.png')">
+        <img src="img/45.png" alt="Проект 43" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#43</span>
+        </div>
+      </div>
+      <div class="pf-item pf-wide" onclick="openLightbox('46.png')">
+        <img src="img/46.png" alt="Проект 44" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#44</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('47.png')">
+        <img src="img/47.png" alt="Проект 45" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#45</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('48.png')">
+        <img src="img/48.png" alt="Проект 46" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#46</span>
+        </div>
+      </div>
+      <div class="pf-item pf-tall" onclick="openLightbox('49.png')">
+        <img src="img/49.png" alt="Проект 47" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#47</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('50.png')">
+        <img src="img/50.png" alt="Проект 48" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#48</span>
+        </div>
+      </div>
+      <div class="pf-item pf-wide" onclick="openLightbox('51.png')">
+        <img src="img/51.png" alt="Проект 49" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#49</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('52.png')">
+        <img src="img/52.png" alt="Проект 50" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#50</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('53.png')">
+        <img src="img/53.png" alt="Проект 51" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#51</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('54.png')">
+        <img src="img/54.png" alt="Проект 52" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#52</span>
+        </div>
+      </div>
+      <div class="pf-item pf-tall" onclick="openLightbox('55.png')">
+        <img src="img/55.png" alt="Проект 53" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#53</span>
+        </div>
+      </div>
+      <div class="pf-item pf-wide" onclick="openLightbox('56.png')">
+        <img src="img/56.png" alt="Проект 54" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#54</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('57.png')">
+        <img src="img/57.png" alt="Проект 55" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#55</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('58.png')">
+        <img src="img/58.png" alt="Проект 56" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#56</span>
+        </div>
+      </div>
+      <div class="pf-item pf-tall" onclick="openLightbox('59.png')">
+        <img src="img/59.png" alt="Проект 57" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#57</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('60.png')">
+        <img src="img/60.png" alt="Проект 58" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#58</span>
+        </div>
+      </div>
+      <div class="pf-item pf-wide" onclick="openLightbox('61.png')">
+        <img src="img/61.png" alt="Проект 59" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#59</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('62.png')">
+        <img src="img/62.png" alt="Проект 60" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#60</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('65.png')">
+        <img src="img/65.png" alt="Проект 61" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#61</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('66.png')">
+        <img src="img/66.png" alt="Проект 62" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#62</span>
+        </div>
+      </div>
+      <div class="pf-item pf-tall" onclick="openLightbox('67.png')">
+        <img src="img/67.png" alt="Проект 63" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#63</span>
+        </div>
+      </div>
+      <div class="pf-item pf-wide" onclick="openLightbox('68.png')">
+        <img src="img/68.png" alt="Проект 64" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#64</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('69.png')">
+        <img src="img/69.png" alt="Проект 65" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#65</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('70.png')">
+        <img src="img/70.png" alt="Проект 66" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#66</span>
+        </div>
+      </div>
+      <div class="pf-item pf-tall" onclick="openLightbox('71.png')">
+        <img src="img/71.png" alt="Проект 67" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#67</span>
+        </div>
+      </div>
+      <div class="pf-item pf-normal" onclick="openLightbox('Group 23.png')">
+        <img src="img/Group 23.png" alt="Проект 68" loading="lazy">
+        <div class="pf-item-overlay">
+          <span class="pf-item-num">#68</span>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="pf-cta">
+  <h2 class="pf-cta-title">Хотите так же?<br><em>Давайте обсудим</em></h2>
+  <p class="pf-cta-sub">Расскажите о проекте — ответим в течение 2 часов</p>
+  <a href="index.html#contact" class="btn-primary">Оставить заявку →</a>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="lb-close" onclick="closeLightbox()">×</span>
+  <span class="lb-prev" onclick="changeLb(-1)">‹</span>
+  <img id="lb-img" src="" alt="">
+  <span class="lb-next" onclick="changeLb(1)">›</span>
+</div>
+
+<script>
+// Cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e=>{ mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
+(function animRing(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(animRing); })();
+
+// Lightbox
+const allImgs = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png", "11.png", "12.png", "13.png", "14.png", "15.png", "16.png", "17.png", "18.png", "19.png", "20.png", "22.png", "23.png", "24.png", "25.png", "26.png", "27.png", "28.png", "29.png", "30.png", "31.png", "32.png", "33.png", "34.png", "35.png", "36.png", "37.png", "38.png", "39.png", "40.png", "41.png", "42.png", "44.png", "45.png", "46.png", "47.png", "48.png", "49.png", "50.png", "51.png", "52.png", "53.png", "54.png", "55.png", "56.png", "57.png", "58.png", "59.png", "60.png", "61.png", "62.png", "65.png", "66.png", "67.png", "68.png", "69.png", "70.png", "71.png", "Group 23.png"];
+let lbIdx = 0;
+function openLightbox(img) {
+  lbIdx = allImgs.indexOf(img);
+  document.getElementById('lb-img').src = 'img/' + allImgs[lbIdx];
+  document.getElementById('lightbox').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+  document.body.style.overflow = '';
+}
+function changeLb(dir) {
+  lbIdx = (lbIdx + dir + allImgs.length) % allImgs.length;
+  document.getElementById('lb-img').src = 'img/' + allImgs[lbIdx];
+}
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape') closeLightbox();
+  if(e.key==='ArrowRight') changeLb(1);
+  if(e.key==='ArrowLeft') changeLb(-1);
+});
+document.getElementById('lightbox').addEventListener('click', e=>{ if(e.target===e.currentTarget) closeLightbox(); });
+</script>
+</body>
+</html>
