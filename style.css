@@ -751,8 +751,7 @@
   perspective: 1200px;
   opacity: 0;
   animation: fadeUp 1s ease forwards 0.8s;
-  margin-bottom: 0;
-  width: 100%;
+  margin-bottom: 1rem;
 }
 
 .mockup-scene {
@@ -760,7 +759,6 @@
   transform: rotateY(-18deg) rotateX(6deg);
   transform-style: preserve-3d;
   animation: floatScene 6s ease-in-out infinite;
-  width: 100%;
 }
 @keyframes floatScene {
   0%,100% { transform: rotateY(-18deg) rotateX(6deg) translateY(0); }
@@ -769,7 +767,7 @@
 
 /* Browser shell */
 .mockup-browser {
-  width: 100%;
+  width: 560px;
   background: #13161f;
   border-radius: 14px;
   border: 1px solid rgba(90,180,245,0.18);
