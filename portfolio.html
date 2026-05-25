@@ -15,212 +15,305 @@
   --accent:#5ab4f5;
   --text:#f0ede8;
   --muted:rgba(255,255,255,0.32);
-  --gap:6px;
+  --gap:4px;
   --radius:12px;
-  --feed:860px;
   --font-d:'Unbounded',sans-serif;
   --font-b:'Onest',sans-serif;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-weight:300;overflow-x:hidden;cursor:none}
-.cursor{position:fixed;width:12px;height:12px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:transform .15s}
+body{background:var(--bg);color:var(--text);font-family:var(--font-b);overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+.cursor{position:fixed;width:12px;height:12px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference}
 .cursor-ring{position:fixed;width:40px;height:40px;border:1px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.4}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(17,17,19,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(90,180,245,.1)}
-.logo{text-decoration:none}.logo-img{height:30px;width:auto;display:block}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.25rem 3rem;display:flex;align-items:center;justify-content:space-between;background:rgba(17,17,19,.96);backdrop-filter:blur(20px);border-bottom:1px solid rgba(90,180,245,.1)}
+.logo{text-decoration:none}.logo-img{height:30px;display:block}
 .nav-right{display:flex;gap:1rem;align-items:center}
-.nav-back{color:var(--muted);text-decoration:none;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;font-family:var(--font-d)}
+.nav-back{color:var(--muted);text-decoration:none;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-family:var(--font-d);transition:color .2s}
 .nav-back:hover{color:var(--text)}
 .nav-cta{background:var(--accent);color:#fff;font-family:var(--font-d);font-weight:700;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;padding:.7rem 1.4rem;border:none;cursor:none;text-decoration:none;transition:transform .2s,box-shadow .2s}
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(90,180,245,.3)}
 
 /* HERO */
-.pf-hero{padding:7.5rem 2rem 2.5rem;max-width:var(--feed);margin:0 auto}
-.pf-lbl{font-size:.68rem;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;display:flex;align-items:center;gap:.75rem;margin-bottom:1rem}
-.pf-lbl::before{content:'';width:28px;height:1px;background:var(--accent)}
-.pf-title{font-family:var(--font-d);font-weight:900;font-size:clamp(2rem,4vw,4rem);line-height:1;letter-spacing:-.04em;margin-bottom:.5rem}
-.pf-title em{font-style:normal;color:var(--accent)}
-.pf-sub{color:var(--muted);font-size:.88rem}
+.hero{padding:7.5rem 0 2rem;text-align:center}
+.hero-lbl{font-size:.68rem;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:.75rem}
+.hero-lbl::before,.hero-lbl::after{content:'';width:28px;height:1px;background:var(--accent)}
+.hero-title{font-family:var(--font-d);font-weight:900;font-size:clamp(2rem,4vw,4rem);line-height:1;letter-spacing:-.04em;margin-bottom:.5rem}
+.hero-title em{font-style:normal;color:var(--accent)}
+.hero-sub{color:var(--muted);font-size:.88rem}
 
-/* FEED */
-.feed{max-width:var(--feed);margin:0 auto;padding:2rem 2rem 6rem;display:flex;flex-direction:column;gap:0}
+/* FEED — centered, no max-width constraint, content determines width */
+.feed{display:flex;flex-direction:column;align-items:center;gap:0;padding:2rem 2rem 6rem}
 
-/* CARD */
-.card{background:var(--card);border-radius:var(--radius);overflow:hidden;border:1px solid rgba(90,180,245,.1)}
-.card-h{height:100%}
+/* CARD — wraps tightly around content */
+.card{background:var(--card);border-radius:var(--radius);overflow:hidden;border:1px solid rgba(90,180,245,.1);display:inline-block}
 
-/* ROWS — images fill naturally, no object-fit cropping */
-.row{display:flex;gap:var(--gap)}
-.row img{flex:1;width:0;height:auto;display:block;cursor:none;transition:opacity .2s}
-.row img:hover{opacity:.9}
-/* remove gap borders */
-.r1 img,.r2 img,.r3 img,.r4 img{min-width:0}
-
-/* NFS layout */
-.r-nfs{display:flex;gap:var(--gap)}
-.nfs-left{flex:1.8;display:flex;flex-direction:column;gap:var(--gap)}
-.nfs-top img{width:100%;height:auto;display:block;cursor:none}
-.nfs-bot{display:flex;gap:var(--gap)}
-.nfs-bot img{flex:1;width:0;height:auto;display:block;cursor:none}
-.nfs-right{flex:1;display:flex;flex-direction:column;gap:var(--gap)}
-.nfs-right img{width:100%;height:auto;display:block;cursor:none}
+/* ROW — images sit side by side at natural pixel size */
+.row{display:flex;gap:var(--gap);background:var(--card)}
+.row img{display:block;cursor:none;transition:opacity .25s;flex-shrink:0}
+.row img:hover{opacity:.88}
 
 /* LABEL */
-.lbl{text-align:center;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding:.65rem 0 2rem}
+.lbl{text-align:center;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);padding:.6rem 0 2rem;width:100%}
 
-/* FREE — no card */
-.free-1{width:100%;margin-bottom:0}
-.free-1 img,.free-img{width:100%;height:auto;display:block;cursor:none;border-radius:4px}
+/* GROUP WRAPPER — each group takes its natural width, centered */
+.group{display:flex;flex-direction:column;align-items:center;width:100%;margin-bottom:0}
 
-/* TILTED — 3 cards slightly rotated, no background */
-.free-tilted{display:flex;justify-content:center;align-items:flex-end;gap:-20px;padding:2rem 0;position:relative;height:420px}
-.tilt-wrap{position:absolute;width:38%;bottom:0;transition:transform .3s}
-.tilt-wrap img{width:100%;height:auto;display:block;cursor:none;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
-.t1{left:2%;transform:rotate(-8deg);transform-origin:bottom center;z-index:1}
-.t2{left:50%;transform:translateX(-50%) rotate(0deg);transform-origin:bottom center;z-index:3}
-.t3{right:2%;transform:rotate(8deg);transform-origin:bottom center;z-index:2}
-.t1:hover{transform:rotate(-5deg) translateY(-8px);z-index:10}
-.t2:hover{transform:translateX(-50%) translateY(-8px);z-index:10}
-.t3:hover{transform:rotate(5deg) translateY(-8px);z-index:10}
+/* FREE — no card, image at natural size, centered */
+.free{display:flex;justify-content:center;width:100%}
+.free img{display:block;cursor:none;transition:opacity .25s;flex-shrink:0}
+.free img:hover{opacity:.88}
 
-/* HALF ROW */
-.half-row{display:flex;gap:1.5rem;align-items:flex-start}
-.half-col{flex:1;display:flex;flex-direction:column}
-.half-col .card{flex:1}
-.lbl-h{text-align:center;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding:.65rem 0 0}
+/* TILTED — 3 images fanned out, no background, centered */
+.tilted{display:flex;justify-content:center;align-items:flex-end;padding:3rem 2rem 1rem;width:100%;position:relative;gap:16px}
+.tilt-item{transform:rotate(var(--r));transform-origin:bottom center;transition:transform .3s,z-index .3s;position:relative}
+.tilt-item:hover{transform:rotate(0deg) translateY(-12px);z-index:10}
+.tilt-item img{display:block;cursor:none;border-radius:8px;box-shadow:0 24px 60px rgba(0,0,0,.7)}
 
-/* SPACING between groups */
-.card,.free-1,.free-tilted,.half-row{margin-bottom:0}
-.lbl{margin-bottom:0}
-.feed>*{margin-bottom:1.5rem}
-.feed>.lbl{margin-top:-.75rem;margin-bottom:1.5rem}
+/* NFS layout */
+.nfs-grid{display:flex;gap:var(--gap)}
+.nfs-left{display:flex;flex-direction:column;gap:var(--gap)}
+.nfs-top img{display:block;cursor:none;transition:opacity .25s}
+.nfs-top img:hover{opacity:.88}
+.nfs-bot{display:flex;gap:var(--gap)}
+.nfs-bot img{display:block;cursor:none;transition:opacity .25s;flex-shrink:0}
+.nfs-bot img:hover{opacity:.88}
+.nfs-right{display:flex;flex-direction:column;gap:var(--gap)}
+.nfs-right img{display:block;cursor:none;transition:opacity .25s}
+.nfs-right img:hover{opacity:.88}
+
+/* HALF PAIR */
+.half-pair{display:flex;gap:1.5rem;align-items:flex-start;justify-content:center;width:100%}
+.half-col{display:flex;flex-direction:column;align-items:center}
 
 /* CTA */
-.pf-cta{text-align:center;padding:5rem 2rem 6rem;background:#0f1018;border-top:1px solid rgba(90,180,245,.08)}
-.pf-cta h2{font-family:var(--font-d);font-weight:900;font-size:clamp(1.8rem,4vw,3.5rem);letter-spacing:-.04em;margin-bottom:.75rem}
-.pf-cta h2 em{font-style:normal;color:var(--accent)}
-.pf-cta p{color:var(--muted);margin-bottom:2rem;font-size:.9rem}
+.cta{text-align:center;padding:5rem 2rem 6rem;background:#0f1018;border-top:1px solid rgba(90,180,245,.08)}
+.cta h2{font-family:var(--font-d);font-weight:900;font-size:clamp(1.8rem,4vw,3.5rem);letter-spacing:-.04em;margin-bottom:.75rem}
+.cta h2 em{font-style:normal;color:var(--accent)}
+.cta p{color:var(--muted);margin-bottom:2rem;font-size:.9rem}
 .btn{background:var(--accent);color:#fff;font-family:var(--font-d);font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:1rem 2.5rem;border:none;cursor:none;text-decoration:none;display:inline-block;transition:transform .2s,box-shadow .2s}
 .btn:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(90,180,245,.35)}
 
 /* LIGHTBOX */
-.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;padding:1.5rem}
-.lightbox.active{display:flex}
-.lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:6px;box-shadow:0 0 80px rgba(90,180,245,.1)}
-.lb-x{position:absolute;top:1.5rem;right:2rem;font-size:2.5rem;color:rgba(255,255,255,.35);cursor:none;line-height:1;transition:color .2s}
+.lb{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;padding:1.5rem}
+.lb.on{display:flex}
+.lb img{max-width:92vw;max-height:92vh;object-fit:contain;border-radius:6px}
+.lb-x{position:absolute;top:1.5rem;right:2rem;font-size:2.5rem;color:rgba(255,255,255,.35);cursor:none;transition:color .2s}
 .lb-x:hover{color:var(--text)}
-.lb-p,.lb-n{position:absolute;top:50%;transform:translateY(-50%);font-size:3rem;color:rgba(255,255,255,.2);cursor:none;padding:1rem;transition:color .2s;user-select:none}
+.lb-p,.lb-n{position:absolute;top:50%;transform:translateY(-50%);font-size:3rem;color:rgba(255,255,255,.2);cursor:none;padding:1rem;user-select:none;transition:color .2s}
 .lb-p{left:.5rem}.lb-n{right:.5rem}
 .lb-p:hover,.lb-n:hover{color:var(--accent)}
-
-@media(max-width:640px){
-  nav{padding:1rem 1.25rem}
-  .pf-hero{padding:6.5rem 1rem 1.5rem}
-  .feed{padding:1.5rem 1rem 4rem}
-  .free-tilted{height:280px}
-  .tilt-wrap{width:46%}
-  .half-row{flex-direction:column}
-}
 </style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="ring"></div>
 <nav>
-  <a href="index.html" class="logo"><img src="logo.svg" alt="WEB.EKB" class="logo-img"></a>
+  <a href="index.html" class="logo"><img src="logo.svg" class="logo-img" alt="WEB.EKB"></a>
   <div class="nav-right">
     <a href="index.html" class="nav-back">← Главная</a>
     <a href="index.html#contact" class="nav-cta">Оставить заявку</a>
   </div>
 </nav>
-<section class="pf-hero">
-  <div class="pf-lbl">Наши работы</div>
-  <h1 class="pf-title">68 проектов,<br><em>которые работают</em></h1>
-  <p class="pf-sub">Сайты, баннеры, соцсети — каждый под задачу клиента</p>
-</section>
+<div class="hero">
+  <div class="hero-lbl">Наши работы</div>
+  <h1 class="hero-title">67 проектов,<br><em>которые работают</em></h1>
+  <p class="hero-sub">Сайты, баннеры, соцсети — каждый под задачу клиента</p>
+</div>
 <div class="feed">
-<div class="card"><div class="row r1"><img src="img/1.png" alt="" class="" onclick="openLightbox('1.png')"></div></div><div class="lbl">ШАПКА ПРОФИЛЯ</div>
-<div class="card"><div class="row r3"><img src="img/2.png" alt="" class="" onclick="openLightbox('2.png')"><img src="img/3.png" alt="" class="" onclick="openLightbox('3.png')"><img src="img/4.png" alt="" class="" onclick="openLightbox('4.png')"></div></div><div class="lbl">СЕРИЯ РЕКЛАМНЫХ INSTAGRAM-СТОРИС</div>
-<div class="card"><div class="row r1"><img src="img/5.png" alt="" class="" onclick="openLightbox('5.png')"></div></div><div class="lbl">БАННЕР ДЛЯ YOUTUBE</div>
-<div class="card"><div class="row r3"><img src="img/6.png" alt="" class="" onclick="openLightbox('6.png')"><img src="img/7.png" alt="" class="" onclick="openLightbox('7.png')"><img src="img/8.png" alt="" class="" onclick="openLightbox('8.png')"></div></div><div class="lbl">ИСТОРИИ ИНСТАГРАМ</div>
-<div class="card"><div class="row r-nfs">
+<div class="card">
+<div class="row"><img src="img/1.png" alt="" width="1127" height="588" onclick="openLb('1.png')"></div>
+</div>
+<div class="lbl">ШАПКА ПРОФИЛЯ</div>
+
+<div class="card">
+<div class="row"><img src="img/2.png" alt="" width="362" height="643" onclick="openLb('2.png')"><img src="img/3.png" alt="" width="362" height="642" onclick="openLb('3.png')"><img src="img/4.png" alt="" width="362" height="643" onclick="openLb('4.png')"></div>
+</div>
+<div class="lbl">СЕРИЯ РЕКЛАМНЫХ INSTAGRAM-СТОРИС</div>
+
+<div class="card">
+<div class="row"><img src="img/5.png" alt="" width="1127" height="191" onclick="openLb('5.png')"></div>
+</div>
+<div class="lbl">БАННЕР ДЛЯ YOUTUBE</div>
+
+<div class="card">
+<div class="row"><img src="img/6.png" alt="" width="363" height="644" onclick="openLb('6.png')"><img src="img/7.png" alt="" width="363" height="644" onclick="openLb('7.png')"><img src="img/8.png" alt="" width="363" height="644" onclick="openLb('8.png')"></div>
+</div>
+<div class="lbl">ИСТОРИИ ИНСТАГРАМ</div>
+
+<div class="card">
+<div class="nfs-grid">
   <div class="nfs-left">
-    <div class="nfs-top"><img src="img/9.png" alt="" class="" onclick="openLightbox('9.png')"></div>
-    <div class="nfs-bot"><img src="img/10.png" alt="" class="" onclick="openLightbox('10.png')"><img src="img/11.png" alt="" class="" onclick="openLightbox('11.png')"></div>
+    <div class="nfs-top"><img src="img/9.png" alt="" width="1157" height="676" onclick="openLb('9.png')"></div>
+    <div class="nfs-bot"><img src="img/10.png" alt="" width="552" height="311" onclick="openLb('10.png')"><img src="img/11.png" alt="" width="552" height="311" onclick="openLb('11.png')"></div>
   </div>
-  <div class="nfs-right"><img src="img/12.png" alt="" class="" onclick="openLightbox('12.png')"><img src="img/13.png" alt="" class="" onclick="openLightbox('13.png')"></div>
-</div></div><div class="lbl">СЕРИЯ РЕКЛАМНЫХ МАТЕРИАЛОВ</div>
-<div class="card"><div class="row r2"><img src="img/14.png" alt="" class="" onclick="openLightbox('14.png')"><img src="img/15.png" alt="" class="" onclick="openLightbox('15.png')"></div></div><div class="lbl">ПРЕВЬЮ ДЛЯ ВИДЕОРОЛИКОВ</div>
-<div class="free-tilted">
-  <div class="tilt-wrap t1"><img src="img/16.png" alt="" class="tilt-img" onclick="openLightbox('16.png')"></div>
-  <div class="tilt-wrap t2"><img src="img/17.png" alt="" class="tilt-img" onclick="openLightbox('17.png')"></div>
-  <div class="tilt-wrap t3"><img src="img/18.png" alt="" class="tilt-img" onclick="openLightbox('18.png')"></div>
-</div><div class="lbl">ИСТОРИИ ИНСТАГРАМ</div>
-<div class="card"><div class="row r4"><img src="img/19.png" alt="" class="" onclick="openLightbox('19.png')"><img src="img/20.png" alt="" class="" onclick="openLightbox('20.png')"><img src="img/22.png" alt="" class="" onclick="openLightbox('22.png')"><img src="img/23.png" alt="" class="" onclick="openLightbox('23.png')"></div></div><div class="lbl">ИСТОРИИ ИНСТАГРАМ</div>
-<div class="card"><div class="row r2"><img src="img/24.png" alt="" class="" onclick="openLightbox('24.png')"><img src="img/25.png" alt="" class="" onclick="openLightbox('25.png')"></div></div><div class="lbl">РЕКЛАМНЫЕ МАТЕРИАЛЫ ДЛЯ РЕСТОРАНА</div>
-<div class="free-1"><img src="img/26.png" alt="" class="free-img" onclick="openLightbox('26.png')"></div>
-<div class="card"><div class="row r2"><img src="img/27.png" alt="" class="" onclick="openLightbox('27.png')"><img src="img/28.png" alt="" class="" onclick="openLightbox('28.png')"></div></div><div class="lbl">СЕРИЯ ПОСТЕРОВ</div>
-<div class="card"><div class="row r3"><img src="img/29.png" alt="" class="" onclick="openLightbox('29.png')"><img src="img/30.png" alt="" class="" onclick="openLightbox('30.png')"><img src="img/31.png" alt="" class="" onclick="openLightbox('31.png')"></div></div><div class="lbl">ИСТОРИИ ИНСТАГРАМ</div>
-<div class="card"><div class="row r2"><img src="img/32.png" alt="" class="" onclick="openLightbox('32.png')"><img src="img/33.png" alt="" class="" onclick="openLightbox('33.png')"></div>
-<div class="row r2"><img src="img/34.png" alt="" class="" onclick="openLightbox('34.png')"><img src="img/35.png" alt="" class="" onclick="openLightbox('35.png')"></div></div><div class="lbl">ОДЕЖДА</div>
-<div class="card"><div class="row r1"><img src="img/36.png" alt="" class="" onclick="openLightbox('36.png')"></div></div><div class="lbl">БАННЕР ДЛЯ ВКОНТАКТЕ</div>
-<div class="card"><div class="row r2"><img src="img/37.png" alt="" class="" onclick="openLightbox('37.png')"><img src="img/38.png" alt="" class="" onclick="openLightbox('38.png')"></div></div><div class="lbl">АФИШИ МЕРОПРИЯТИЙ</div>
-<div class="card"><div class="row r3"><img src="img/39.png" alt="" class="" onclick="openLightbox('39.png')"><img src="img/40.png" alt="" class="" onclick="openLightbox('40.png')"><img src="img/41.png" alt="" class="" onclick="openLightbox('41.png')"></div></div><div class="lbl">ИСТОРИИ ИНСТАГРАМ</div>
-<div class="card"><div class="row r3"><img src="img/42.png" alt="" class="" onclick="openLightbox('42.png')"><img src="img/44.png" alt="" class="" onclick="openLightbox('44.png')"><img src="img/45.png" alt="" class="" onclick="openLightbox('45.png')"></div>
-<div class="row r1"><img src="img/46.png" alt="" class="" onclick="openLightbox('46.png')"></div></div><div class="lbl">СЕРИЯ ПОСТОВ И СТОРИС</div>
-<div class="half-row">
-  <div class="half-col">
-    <div class="card card-h"><div class="row r1"><img src="img/47.png" alt="" class="" onclick="openLightbox('47.png')"></div></div>
-    <div class="lbl">ПРЕВЬЮ ДЛЯ ПОДКАСТА</div>
-  </div>
-  <div class="half-col">
-    <div class="card card-h"><div class="row r1"><img src="img/48.png" alt="" class="" onclick="openLightbox('48.png')"></div></div>
-    <div class="lbl">ПРЕВЬЮ ДЛЯ ВИДЕОРОЛИКА</div>
+  <div class="nfs-right">
+    <img src="img/12.png" alt="" width="376" height="635" onclick="openLb('12.png')">
+    <img src="img/13.png" alt="" width="385" height="640" onclick="openLb('13.png')">
   </div>
 </div>
-<div class="half-row">
-  <div class="half-col">
-    <div class="card card-h"><div class="row r1"><img src="img/49.png" alt="" class="" onclick="openLightbox('49.png')"></div></div>
-    <div class="lbl">ПЛИТКИ ДЛЯ СОЦ СЕТЕЙ</div>
-  </div>
-  <div class="half-col">
-    <div class="card card-h"><div class="row r1"><img src="img/50.png" alt="" class="" onclick="openLightbox('50.png')"></div></div>
-    <div class="lbl">ПРЕВЬЮ ДЛЯ СТОРИС</div>
-  </div>
 </div>
-<div class="card"><div class="row r2"><img src="img/51.png" alt="" class="" onclick="openLightbox('51.png')"><img src="img/52.png" alt="" class="" onclick="openLightbox('52.png')"></div></div><div class="lbl">ДИЗАЙН ПОСТОВ</div>
-<div class="card"><div class="row r2"><img src="img/53.png" alt="" class="" onclick="openLightbox('53.png')"><img src="img/54.png" alt="" class="" onclick="openLightbox('54.png')"></div></div><div class="lbl">ДИЗАЙН ПОСТОВ</div>
-<div class="card"><div class="row r1"><img src="img/55.png" alt="" class="" onclick="openLightbox('55.png')"></div></div><div class="lbl">РЕКЛАМНЫЙ БАННЕР</div>
-<div class="card"><div class="row r2"><img src="img/56.png" alt="" class="" onclick="openLightbox('56.png')"><img src="img/57.png" alt="" class="" onclick="openLightbox('57.png')"></div></div><div class="lbl">ПРЕВЬЮ ДЛЯ YOUTUBE</div>
-<div class="card"><div class="row r3"><img src="img/58.png" alt="" class="" onclick="openLightbox('58.png')"><img src="img/59.png" alt="" class="" onclick="openLightbox('59.png')"><img src="img/60.png" alt="" class="" onclick="openLightbox('60.png')"></div></div><div class="lbl">ДИЗАЙН ПОСТОВ</div>
-<div class="card"><div class="row r1"><img src="img/61.png" alt="" class="" onclick="openLightbox('61.png')"></div></div><div class="lbl">ОБЛОЖКА ПРОФИЛЯ</div>
-<div class="card"><div class="row r1"><img src="img/62.png" alt="" class="" onclick="openLightbox('62.png')"></div></div><div class="lbl">САЙТ ПОД КЛЮЧ</div>
-<div class="card"><div class="row r2"><img src="img/65.png" alt="" class="" onclick="openLightbox('65.png')"><img src="img/66.png" alt="" class="" onclick="openLightbox('66.png')"></div></div><div class="lbl">ДИЗАЙН ПОСТОВ</div>
-<div class="card"><div class="row r1"><img src="img/67.png" alt="" class="" onclick="openLightbox('67.png')"></div></div><div class="lbl">ПРЕВЬЮ ДЛЯ ВИДЕО</div>
-<div class="card"><div class="row r2"><img src="img/68.png" alt="" class="" onclick="openLightbox('68.png')"><img src="img/69.png" alt="" class="" onclick="openLightbox('69.png')"></div></div><div class="lbl">ПРЕВЬЮ ДЛЯ ВИДЕО</div>
-<div class="card"><div class="row r2"><img src="img/70.png" alt="" class="" onclick="openLightbox('70.png')"><img src="img/71.png" alt="" class="" onclick="openLightbox('71.png')"></div></div><div class="lbl">ФИРМЕННЫЙ СТИЛЬ</div>
+<div class="lbl">СЕРИЯ РЕКЛАМНЫХ МАТЕРИАЛОВ</div>
+
+<div class="card">
+<div class="row"><img src="img/14.png" alt="" width="382" height="638" onclick="openLb('14.png')"><img src="img/15.png" alt="" width="269" height="478" onclick="openLb('15.png')"></div>
 </div>
-<div class="pf-cta">
+<div class="lbl">ПРЕВЬЮ ДЛЯ ВИДЕОРОЛИКОВ</div>
+
+<div class="tilted">
+<div class="tilt-item" style="--r:-8deg"><img src="img/16.png" width="269" height="478" onclick="openLb('16.png')" alt=""></div>
+<div class="tilt-item" style="--r:0deg"><img src="img/17.png" width="269" height="478" onclick="openLb('17.png')" alt=""></div>
+<div class="tilt-item" style="--r:8deg"><img src="img/18.png" width="269" height="478" onclick="openLb('18.png')" alt=""></div>
+</div>
+<div class="lbl">ИСТОРИИ ИНСТАГРАМ</div>
+
+<div class="card">
+<div class="row"><img src="img/19.png" alt="" width="856" height="446" onclick="openLb('19.png')"><img src="img/20.png" alt="" width="251" height="446" onclick="openLb('20.png')"><img src="img/22.png" alt="" width="958" height="411" onclick="openLb('22.png')"><img src="img/23.png" alt="" width="553" height="410" onclick="openLb('23.png')"></div>
+</div>
+<div class="lbl">ИСТОРИИ ИНСТАГРАМ</div>
+
+<div class="card">
+<div class="row"><img src="img/24.png" alt="" width="547" height="410" onclick="openLb('24.png')"><img src="img/25.png" alt="" width="1157" height="508" onclick="openLb('25.png')"></div>
+</div>
+<div class="lbl">РЕКЛАМНЫЕ МАТЕРИАЛЫ ДЛЯ РЕСТОРАНА</div>
+
+<div class="free">
+<img src="img/26.png" alt="" width="1195" height="1767" onclick="openLb('26.png')">
+</div>
+
+
+<div class="card">
+<div class="row"><img src="img/27.png" alt="" width="1124" height="450" onclick="openLb('27.png')"><img src="img/28.png" alt="" width="642" height="803" onclick="openLb('28.png')"></div>
+</div>
+<div class="lbl">СЕРИЯ ПОСТЕРОВ</div>
+
+<div class="card">
+<div class="row"><img src="img/29.png" alt="" width="452" height="803" onclick="openLb('29.png')"><img src="img/30.png" alt="" width="361" height="642" onclick="openLb('30.png')"><img src="img/31.png" alt="" width="361" height="642" onclick="openLb('31.png')"></div>
+</div>
+<div class="lbl">ИСТОРИИ ИНСТАГРАМ</div>
+
+<div class="card">
+<div class="row"><img src="img/32.png" alt="" width="361" height="642" onclick="openLb('32.png')"><img src="img/33.png" alt="" width="1157" height="1284" onclick="openLb('33.png')"></div>
+<div class="row"><img src="img/34.png" alt="" width="527" height="297" onclick="openLb('34.png')"><img src="img/35.png" alt="" width="531" height="299" onclick="openLb('35.png')"></div>
+</div>
+<div class="lbl">ОДЕЖДА</div>
+
+<div class="card">
+<div class="row"><img src="img/36.png" alt="" width="1195" height="683" onclick="openLb('36.png')"></div>
+</div>
+<div class="lbl">БАННЕР ДЛЯ ВКОНТАКТЕ</div>
+
+<div class="card">
+<div class="row"><img src="img/37.png" alt="" width="477" height="477" onclick="openLb('37.png')"><img src="img/38.png" alt="" width="602" height="601" onclick="openLb('38.png')"></div>
+</div>
+<div class="lbl">АФИШИ МЕРОПРИЯТИЙ</div>
+
+<div class="card">
+<div class="row"><img src="img/39.png" alt="" width="233" height="414" onclick="openLb('39.png')"><img src="img/40.png" alt="" width="233" height="414" onclick="openLb('40.png')"><img src="img/41.png" alt="" width="477" height="477" onclick="openLb('41.png')"></div>
+</div>
+<div class="lbl">ИСТОРИИ ИНСТАГРАМ</div>
+
+<div class="card">
+<div class="row"><img src="img/42.png" alt="" width="602" height="802" onclick="openLb('42.png')"><img src="img/44.png" alt="" width="334" height="435" onclick="openLb('44.png')"><img src="img/45.png" alt="" width="261" height="463" onclick="openLb('45.png')"></div>
+<div class="row"><img src="img/46.png" alt="" width="463" height="463" onclick="openLb('46.png')"></div>
+</div>
+<div class="lbl">СЕРИЯ ПОСТОВ И СТОРИС</div>
+
+<div class="half-pair">
+<div class="half-col"><div class="card">
+<div class="row"><img src="img/47.png" alt="" width="334" height="334" onclick="openLb('47.png')"></div>
+</div>
+<div class="lbl">ПРЕВЬЮ ДЛЯ ПОДКАСТА</div></div>
+<div class="half-col"><div class="card">
+<div class="row"><img src="img/48.png" alt="" width="1127" height="186" onclick="openLb('48.png')"></div>
+</div>
+<div class="lbl">ПРЕВЬЮ ДЛЯ ВИДЕОРОЛИКА</div></div>
+</div>
+
+<div class="half-pair">
+<div class="half-col"><div class="card">
+<div class="row"><img src="img/49.png" alt="" width="1127" height="634" onclick="openLb('49.png')"><img src="img/50.png" alt="" width="554" height="739" onclick="openLb('50.png')"></div>
+<div class="row"><img src="img/51.png" alt="" width="554" height="740" onclick="openLb('51.png')"><img src="img/52.png" alt="" width="1127" height="634" onclick="openLb('52.png')"></div>
+</div>
+<div class="lbl">ПЛИТКИ ДЛЯ СОЦ СЕТЕЙ</div></div>
+<div class="half-col"><div class="card">
+<div class="row"><img src="img/53.png" alt="" width="553" height="312" onclick="openLb('53.png')"></div>
+</div>
+<div class="lbl">ПРЕВЬЮ ДЛЯ СТОРИС</div></div>
+</div>
+
+<div class="card">
+<div class="row"><img src="img/54.png" alt="" width="553" height="312" onclick="openLb('54.png')"><img src="img/55.png" alt="" width="324" height="326" onclick="openLb('55.png')"></div>
+</div>
+<div class="lbl">ДИЗАЙН ПОСТОВ</div>
+
+<div class="card">
+<div class="row"><img src="img/56.png" alt="" width="780" height="326" onclick="openLb('56.png')"></div>
+</div>
+<div class="lbl">ОБЛОЖКА ДЛЯ YOUTUBE</div>
+
+<div class="card">
+<div class="row"><img src="img/57.png" alt="" width="1127" height="186" onclick="openLb('57.png')"></div>
+</div>
+<div class="lbl">РЕКЛАМНЫЙ БАННЕР</div>
+
+<div class="card">
+<div class="row"><img src="img/58.png" alt="" width="468" height="626" onclick="openLb('58.png')"><img src="img/59.png" alt="" width="632" height="626" onclick="openLb('59.png')"></div>
+</div>
+<div class="lbl">ПРЕВЬЮ ДЛЯ YOUTUBE</div>
+
+<div class="card">
+<div class="row"><img src="img/60.png" alt="" width="1127" height="634" onclick="openLb('60.png')"><img src="img/61.png" alt="" width="711" height="438" onclick="openLb('61.png')"><img src="img/62.png" alt="" width="378" height="438" onclick="openLb('62.png')"></div>
+</div>
+<div class="lbl">ДИЗАЙН ПОСТОВ</div>
+
+<div class="card">
+<div class="row"><img src="img/65.png" alt="" width="440" height="440" onclick="openLb('65.png')"></div>
+</div>
+<div class="lbl">ОБЛОЖКА ПРОФИЛЯ</div>
+
+<div class="card">
+<div class="row"><img src="img/66.png" alt="" width="660" height="440" onclick="openLb('66.png')"></div>
+</div>
+<div class="lbl">САЙТ ПОД КЛЮЧ</div>
+
+<div class="card">
+<div class="row"><img src="img/67.png" alt="" width="398" height="398" onclick="openLb('67.png')"><img src="img/68.png" alt="" width="707" height="398" onclick="openLb('68.png')"></div>
+</div>
+<div class="lbl">ДИЗАЙН ПОСТОВ</div>
+
+<div class="card">
+<div class="row"><img src="img/69.png" alt="" width="1127" height="633" onclick="openLb('69.png')"></div>
+</div>
+<div class="lbl">ПРЕВЬЮ ДЛЯ ВИДЕО</div>
+
+<div class="card">
+<div class="row"><img src="img/70.png" alt="" width="552" height="311" onclick="openLb('70.png')"><img src="img/71.png" alt="" width="549" height="309" onclick="openLb('71.png')"></div>
+</div>
+<div class="lbl">ФИРМЕННЫЙ СТИЛЬ</div>
+</div>
+<div class="cta">
   <h2><em>Хотите так же?</em><br>Давайте обсудим</h2>
   <p>Расскажите о проекте — ответим в течение 2 часов</p>
   <a href="index.html#contact" class="btn">Оставить заявку →</a>
 </div>
-<div class="lightbox" id="lb">
+<div class="lb" id="lb">
   <span class="lb-x" onclick="closeLb()">×</span>
   <span class="lb-p" onclick="chLb(-1)">‹</span>
   <img id="lb-img" src="" alt="">
   <span class="lb-n" onclick="chLb(1)">›</span>
 </div>
 <script>
-const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+const cur=document.getElementById('cur'),ring=document.getElementById('ring');
 let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
 (function a(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a)})();
-const all=["1.png","2.png","3.png","4.png","5.png","6.png","7.png","8.png","9.png","10.png","11.png","12.png","13.png","14.png","15.png","16.png","17.png","18.png","19.png","20.png","22.png","23.png","24.png","25.png","26.png","27.png","28.png","29.png","30.png","31.png","32.png","33.png","34.png","35.png","36.png","37.png","38.png","39.png","40.png","41.png","42.png","44.png","45.png","46.png","47.png","48.png","49.png","50.png","51.png","52.png","53.png","54.png","55.png","56.png","57.png","58.png","59.png","60.png","61.png","62.png","65.png","66.png","67.png","68.png","69.png","70.png","71.png","Group 23.png"];
+const all=["1.png","2.png","3.png","4.png","5.png","6.png","7.png","8.png","9.png","10.png","11.png","12.png","13.png","14.png","15.png","16.png","17.png","18.png","19.png","20.png","22.png","23.png","24.png","25.png","26.png","27.png","28.png","29.png","30.png","31.png","32.png","33.png","34.png","35.png","36.png","37.png","38.png","39.png","40.png","41.png","42.png","44.png","45.png","46.png","47.png","48.png","49.png","50.png","51.png","52.png","53.png","54.png","55.png","56.png","57.png","58.png","59.png","60.png","61.png","62.png","65.png","66.png","67.png","68.png","69.png","70.png","71.png"];
 let idx=0;
-function openLightbox(f){idx=all.indexOf(f);document.getElementById('lb-img').src='img/'+all[idx];document.getElementById('lb').classList.add('active');document.body.style.overflow='hidden'}
-function closeLb(){document.getElementById('lb').classList.remove('active');document.body.style.overflow=''}
+function openLb(f){idx=all.indexOf(f);document.getElementById('lb-img').src='img/'+all[idx];document.getElementById('lb').classList.add('on');document.body.style.overflow='hidden'}
+function closeLb(){document.getElementById('lb').classList.remove('on');document.body.style.overflow=''}
 function chLb(d){idx=(idx+d+all.length)%all.length;document.getElementById('lb-img').src='img/'+all[idx]}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')chLb(1);if(e.key==='ArrowLeft')chLb(-1)});
 document.getElementById('lb').addEventListener('click',e=>{if(e.target===e.currentTarget)closeLb()});
