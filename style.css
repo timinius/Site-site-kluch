@@ -921,6 +921,8 @@
     0%,100% { transform: rotateY(-12deg) rotateX(5deg) translateY(0); }
     50%      { transform: rotateY(-9deg) rotateX(3deg) translateY(-10px); }
   }
+  .hero-right-top { transform: none; }
+  .hero-actions { margin-top: 0; }
 
   /* Buttons: two in one row, full width */
   .hero-actions {
@@ -972,6 +974,8 @@
     margin-bottom: 0;
   }
   .mockup-scene { transform: rotateY(-10deg) rotateX(5deg); }
+  .hero-right-top { transform: none; }
+  .hero-actions { margin-top: 0; }
   .mockup-browser { width: 300px; }
   .fb1 { left: -8px; font-size: 9px; padding: 5px 10px; }
   .fb2 { right: -8px; font-size: 9px; padding: 5px 10px; }
