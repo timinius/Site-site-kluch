@@ -737,6 +737,7 @@
   gap: 1rem;
   flex-wrap: wrap;
   width: 100%;
+  margin-top: -60px;
 }
 .hero-actions .btn-primary,
 .hero-actions .btn-ghost {
@@ -757,13 +758,13 @@
 
 .mockup-scene {
   position: relative;
-  transform: rotateY(-18deg) rotateX(6deg);
+  transform: rotateY(-18deg) rotateX(6deg) scaleY(1.25);
   transform-style: preserve-3d;
   animation: floatScene 6s ease-in-out infinite;
 }
 @keyframes floatScene {
-  0%,100% { transform: rotateY(-18deg) rotateX(6deg) translateY(0); }
-  50%      { transform: rotateY(-14deg) rotateX(4deg) translateY(-14px); }
+  0%,100% { transform: rotateY(-18deg) rotateX(6deg) scaleY(1.25) translateY(0); }
+  50%      { transform: rotateY(-14deg) rotateX(4deg) scaleY(1.25) translateY(-14px); }
 }
 
 /* Browser shell */
