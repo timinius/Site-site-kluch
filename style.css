@@ -68,7 +68,7 @@
     padding: 1.5rem 4rem;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 0;
     border-bottom: 1px solid transparent;
     transition: border-color 0.3s, background 0.3s;
   }
@@ -91,6 +91,8 @@
     display: flex;
     gap: 2.5rem;
     list-style: none;
+    margin-left: 3rem;
+    flex: 1;
   }
   .nav-links a {
     color: var(--muted);
@@ -689,14 +691,14 @@
 /* Override base hero for split layout */
 .hero {
   justify-content: center;
-  padding: 7rem 4rem 4rem;
+  padding: 6rem 4rem 3rem;
   min-height: 100vh;
 }
 
 .hero-split {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: 3rem;
   align-items: center;
   width: 100%;
@@ -710,7 +712,7 @@
   justify-content: center;
 }
 .hero-left .hero-tag { margin-bottom: 0; }
-.hero-left .hero-title { font-size: clamp(2.5rem, 5vw, 6rem); }
+.hero-left .hero-title { font-size: clamp(2.5rem, 5.5vw, 6.5rem); }
 .hero-left .hero-sub { max-width: 360px; font-size: 0.9rem; margin: 0; }
 
 /* RIGHT — 3D mockup on top, buttons below */
@@ -752,7 +754,7 @@
 
 /* Browser shell */
 .mockup-browser {
-  width: 460px;
+  width: 520px;
   background: #13161f;
   border-radius: 14px;
   border: 1px solid rgba(90,180,245,0.18);
@@ -1079,6 +1081,7 @@
   padding: 0.75rem 1.5rem;
   border: 1px solid var(--border);
   transition: border-color 0.2s, color 0.2s;
+  margin-right: 0.75rem;
 }
 .nav-portfolio:hover {
   border-color: var(--accent);
