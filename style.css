@@ -724,6 +724,7 @@
   padding-top: 0;
   margin-left: auto;
   width: 100%;
+  transform: translateY(-60px);
 }
 .hero-right-top {
   flex: 1;
