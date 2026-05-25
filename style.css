@@ -887,8 +887,9 @@
 
 /* Tablet — 1024px */
 @media (max-width: 1024px) {
-  nav { padding: 1.25rem 2rem; }
+  nav { padding: 1.25rem 2rem; justify-content: space-between; }
   .nav-links { display: none; }
+  .nav-portfolio { margin-left: auto; margin-right: 0.75rem; }
   section { padding: 5rem 2rem; }
   .hero { padding: 6rem 2rem 3rem; }
 
@@ -947,8 +948,9 @@
 
 /* Mobile — 640px */
 @media (max-width: 640px) {
-  nav { padding: 1rem 1.25rem; }
+  nav { padding: 1rem 1.25rem; justify-content: space-between; }
   .nav-cta { display: none; }
+  .nav-portfolio { margin-left: auto; margin-right: 0; }
   section { padding: 4rem 1.25rem; }
   .hero { padding: 5.5rem 1.25rem 2.5rem; }
 
