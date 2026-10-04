@@ -1,0 +1,395 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-04T22:12:24+00:00",
+  "title": "Design System: WEB.EKB",
+  "extensions": {
+    "colorMeta": {
+      "malachite-950": {
+        "role": "secondary",
+        "displayName": "Malachite Night",
+        "canonical": "oklch(0.17 0.03 168)",
+        "tonalRamp": [
+          "oklch(0.15 0.030 168)",
+          "oklch(0.26 0.030 168)",
+          "oklch(0.37 0.030 168)",
+          "oklch(0.48 0.030 168)",
+          "oklch(0.60 0.030 168)",
+          "oklch(0.72 0.030 168)",
+          "oklch(0.84 0.030 168)",
+          "oklch(0.95 0.030 168)"
+        ]
+      },
+      "malachite-900": {
+        "role": "secondary",
+        "displayName": "Malachite Deep",
+        "canonical": "oklch(0.22 0.045 167)",
+        "tonalRamp": [
+          "oklch(0.15 0.045 167)",
+          "oklch(0.26 0.045 167)",
+          "oklch(0.37 0.045 167)",
+          "oklch(0.48 0.045 167)",
+          "oklch(0.60 0.045 167)",
+          "oklch(0.72 0.045 167)",
+          "oklch(0.84 0.045 167)",
+          "oklch(0.95 0.030 167)"
+        ]
+      },
+      "malachite-800": {
+        "role": "secondary",
+        "displayName": "Malachite Shade",
+        "canonical": "oklch(0.29 0.06 166)",
+        "tonalRamp": [
+          "oklch(0.15 0.060 166)",
+          "oklch(0.26 0.060 166)",
+          "oklch(0.37 0.060 166)",
+          "oklch(0.48 0.060 166)",
+          "oklch(0.60 0.060 166)",
+          "oklch(0.72 0.060 166)",
+          "oklch(0.84 0.060 166)",
+          "oklch(0.95 0.030 166)"
+        ]
+      },
+      "malachite-700": {
+        "role": "secondary",
+        "displayName": "Malachite Stone",
+        "canonical": "oklch(0.37 0.08 165)",
+        "tonalRamp": [
+          "oklch(0.15 0.080 165)",
+          "oklch(0.26 0.080 165)",
+          "oklch(0.37 0.080 165)",
+          "oklch(0.48 0.080 165)",
+          "oklch(0.60 0.080 165)",
+          "oklch(0.72 0.080 165)",
+          "oklch(0.84 0.080 165)",
+          "oklch(0.95 0.030 165)"
+        ]
+      },
+      "malachite-500": {
+        "role": "secondary",
+        "displayName": "Malachite Vein",
+        "canonical": "oklch(0.56 0.12 163)",
+        "tonalRamp": [
+          "oklch(0.15 0.120 163)",
+          "oklch(0.26 0.120 163)",
+          "oklch(0.37 0.120 163)",
+          "oklch(0.48 0.120 163)",
+          "oklch(0.60 0.120 163)",
+          "oklch(0.72 0.120 163)",
+          "oklch(0.84 0.120 163)",
+          "oklch(0.95 0.030 163)"
+        ]
+      },
+      "mineral": {
+        "role": "neutral",
+        "displayName": "Mineral White",
+        "canonical": "oklch(0.966 0.009 160)",
+        "tonalRamp": [
+          "oklch(0.15 0.009 160)",
+          "oklch(0.26 0.009 160)",
+          "oklch(0.37 0.009 160)",
+          "oklch(0.48 0.009 160)",
+          "oklch(0.60 0.009 160)",
+          "oklch(0.72 0.009 160)",
+          "oklch(0.84 0.009 160)",
+          "oklch(0.95 0.009 160)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(0.21 0.035 168)",
+        "tonalRamp": [
+          "oklch(0.15 0.035 168)",
+          "oklch(0.26 0.035 168)",
+          "oklch(0.37 0.035 168)",
+          "oklch(0.48 0.035 168)",
+          "oklch(0.60 0.035 168)",
+          "oklch(0.72 0.035 168)",
+          "oklch(0.84 0.035 168)",
+          "oklch(0.95 0.030 168)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink Soft",
+        "canonical": "oklch(0.42 0.03 168)",
+        "tonalRamp": [
+          "oklch(0.15 0.030 168)",
+          "oklch(0.26 0.030 168)",
+          "oklch(0.37 0.030 168)",
+          "oklch(0.48 0.030 168)",
+          "oklch(0.60 0.030 168)",
+          "oklch(0.72 0.030 168)",
+          "oklch(0.84 0.030 168)",
+          "oklch(0.95 0.030 168)"
+        ]
+      },
+      "copper": {
+        "role": "primary",
+        "displayName": "Rose Copper",
+        "canonical": "oklch(0.72 0.13 55)",
+        "tonalRamp": [
+          "oklch(0.15 0.130 55)",
+          "oklch(0.26 0.130 55)",
+          "oklch(0.37 0.130 55)",
+          "oklch(0.48 0.130 55)",
+          "oklch(0.60 0.130 55)",
+          "oklch(0.72 0.130 55)",
+          "oklch(0.84 0.130 55)",
+          "oklch(0.95 0.030 55)"
+        ]
+      },
+      "copper-light": {
+        "role": "primary",
+        "displayName": "Pale Copper",
+        "canonical": "oklch(0.84 0.08 62)",
+        "tonalRamp": [
+          "oklch(0.15 0.080 62)",
+          "oklch(0.26 0.080 62)",
+          "oklch(0.37 0.080 62)",
+          "oklch(0.48 0.080 62)",
+          "oklch(0.60 0.080 62)",
+          "oklch(0.72 0.080 62)",
+          "oklch(0.84 0.080 62)",
+          "oklch(0.95 0.030 62)"
+        ]
+      },
+      "copper-deep": {
+        "role": "primary",
+        "displayName": "Burnt Copper",
+        "canonical": "oklch(0.52 0.12 45)",
+        "tonalRamp": [
+          "oklch(0.15 0.120 45)",
+          "oklch(0.26 0.120 45)",
+          "oklch(0.37 0.120 45)",
+          "oklch(0.48 0.120 45)",
+          "oklch(0.60 0.120 45)",
+          "oklch(0.72 0.120 45)",
+          "oklch(0.84 0.120 45)",
+          "oklch(0.95 0.030 45)"
+        ]
+      },
+      "on-dark": {
+        "role": "neutral",
+        "displayName": "On Dark",
+        "canonical": "oklch(0.965 0.01 160)",
+        "tonalRamp": [
+          "oklch(0.15 0.010 160)",
+          "oklch(0.26 0.010 160)",
+          "oklch(0.37 0.010 160)",
+          "oklch(0.48 0.010 160)",
+          "oklch(0.60 0.010 160)",
+          "oklch(0.72 0.010 160)",
+          "oklch(0.84 0.010 160)",
+          "oklch(0.95 0.010 160)"
+        ]
+      },
+      "on-dark-soft": {
+        "role": "neutral",
+        "displayName": "On Dark Soft",
+        "canonical": "oklch(0.83 0.03 160)",
+        "tonalRamp": [
+          "oklch(0.15 0.030 160)",
+          "oklch(0.26 0.030 160)",
+          "oklch(0.37 0.030 160)",
+          "oklch(0.48 0.030 160)",
+          "oklch(0.60 0.030 160)",
+          "oklch(0.72 0.030 160)",
+          "oklch(0.84 0.030 160)",
+          "oklch(0.95 0.030 160)"
+        ]
+      },
+      "danger": {
+        "role": "error",
+        "displayName": "Signal Red",
+        "canonical": "oklch(0.52 0.19 28)",
+        "tonalRamp": [
+          "oklch(0.15 0.130 28)",
+          "oklch(0.26 0.130 28)",
+          "oklch(0.37 0.130 28)",
+          "oklch(0.48 0.130 28)",
+          "oklch(0.60 0.130 28)",
+          "oklch(0.72 0.130 28)",
+          "oklch(0.84 0.130 28)",
+          "oklch(0.95 0.030 28)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only; last line at 0.6em in copper."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Price list names and prices, schedule step titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text; leads at 1.125 to 1.25rem."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Buttons, chips, day labels, scroll cue."
+      }
+    },
+    "shadows": [
+      {
+        "name": "button-lift",
+        "value": "0 10px 22px -12px oklch(0.1 0.02 168 / 0.55)",
+        "purpose": "Copper buttons."
+      },
+      {
+        "name": "panel-drop",
+        "value": "0 40px 70px -30px oklch(0 0 0 / 0.75)",
+        "purpose": "Form panel over stone."
+      },
+      {
+        "name": "work-card",
+        "value": "0 14px 28px -14px oklch(0 0 0 / 0.8)",
+        "purpose": "Images on the works wall."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "All state transitions and reveals."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Key turn on form success."
+      },
+      {
+        "name": "door",
+        "value": "scroll-linked: --turn over p 0.02-0.32 (key rotateX 74deg), --open over p 0.34-0.84 (leaves rotateY 100deg)",
+        "purpose": "Signature opening; disabled under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "720px"
+      },
+      {
+        "name": "schedule-stack",
+        "value": "800px"
+      },
+      {
+        "name": "section-stack",
+        "value": "860px"
+      },
+      {
+        "name": "tablet",
+        "value": "960px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Copper action button with an arrow; every primary action on the site.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Обсудить проект <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:.65rem;min-height:3.25rem;padding:.95rem 1.6rem .9rem;border-radius:2px;background:oklch(0.72 0.13 55);color:oklch(0.21 0.035 168);font-family:'Sofia Sans Extra Condensed', 'Arial Narrow', sans-serif;font-weight:700;font-size:1.1875rem;line-height:1;letter-spacing:.045em;text-transform:uppercase;text-decoration:none;box-shadow:0 10px 22px -12px oklch(0.1 0.02 168 / .55);transition:background-color .25s cubic-bezier(.22,1,.36,1)}.ds-btn-primary svg{transition:transform .35s cubic-bezier(.22,1,.36,1)}.ds-btn-primary:hover{background:oklch(0.84 0.08 62)}.ds-btn-primary:hover svg{transform:translateX(4px)}.ds-btn-primary:focus-visible{outline:3px solid oklch(0.37 0.08 165);outline-offset:3px}"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Outlined button for dark grounds, next to the work.",
+      "html": "<div class=\"ds-dark\"><a class=\"ds-btn-line\" href=\"#\">Все работы <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"square\"/></svg></a></div>",
+      "css": ".ds-dark{background:oklch(0.17 0.03 168);padding:1.5rem}.ds-btn-line{display:inline-flex;align-items:center;gap:.65rem;min-height:3.25rem;padding:.95rem 1.6rem .9rem;border:2px solid oklch(0.965 0.01 160 / .45);border-radius:2px;color:oklch(0.965 0.01 160);font-family:'Sofia Sans Extra Condensed', 'Arial Narrow', sans-serif;font-weight:700;font-size:1.1875rem;line-height:1;letter-spacing:.045em;text-transform:uppercase;text-decoration:none;transition:border-color .25s,color .25s}.ds-btn-line:hover{border-color:oklch(0.72 0.13 55);color:oklch(0.84 0.08 62)}.ds-btn-line:focus-visible{outline:3px solid oklch(0.84 0.08 62);outline-offset:3px}"
+    },
+    {
+      "name": "Filter Chips",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Portfolio type filter; the selected chip fills copper.",
+      "html": "<div class=\"ds-dark\"><button class=\"ds-chip\" aria-pressed=\"true\">Все<span>29</span></button> <button class=\"ds-chip\" aria-pressed=\"false\">Сторис<span>5</span></button></div>",
+      "css": ".ds-dark{background:oklch(0.17 0.03 168);padding:1.5rem}.ds-chip{min-height:2.75rem;padding:.65rem 1rem .6rem;border:1.5px solid oklch(0.965 0.01 160 / .28);border-radius:2px;background:transparent;color:oklch(0.965 0.01 160);font-family:'Sofia Sans Extra Condensed', 'Arial Narrow', sans-serif;font-weight:700;font-size:1.0625rem;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}.ds-chip span{margin-left:.35rem;opacity:.7}.ds-chip:hover{border-color:oklch(0.72 0.13 55)}.ds-chip[aria-pressed=true]{background:oklch(0.72 0.13 55);border-color:oklch(0.72 0.13 55);color:oklch(0.21 0.035 168)}.ds-chip:focus-visible{outline:3px solid oklch(0.84 0.08 62);outline-offset:3px}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Labelled field on the mineral form panel.",
+      "html": "<label class=\"ds-field\"><span>Телефон или Telegram</span><input placeholder=\"+7 900 000-00-00 или @username\"></label>",
+      "css": ".ds-field{display:grid;gap:.4rem;font-family:'Sofia Sans', system-ui, sans-serif;color:oklch(0.21 0.035 168);background:oklch(0.966 0.009 160);padding:1.25rem}.ds-field span{font-weight:650;font-size:.975rem}.ds-field input{min-height:3.1rem;padding:.75rem .9rem;border:1.5px solid oklch(0.21 0.035 168 / .38);border-radius:2px;background:oklch(0.995 0.003 160);font:inherit;font-size:1.0625rem;color:inherit}.ds-field input::placeholder{color:oklch(0.5 0.025 168)}.ds-field input:hover{border-color:oklch(0.21 0.035 168 / .6)}.ds-field input:focus-visible{outline:none;border-color:oklch(0.37 0.08 165);box-shadow:0 0 0 3px oklch(0.56 0.12 163 / .35)}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Header links with a copper underline that grows from the left.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Работы</a><a href=\"#\" aria-current=\"page\">Услуги и цены</a><a href=\"#\">Этапы</a></nav>",
+      "css": ".ds-nav{display:flex;gap:2rem;background:oklch(0.17 0.03 168);padding:1.25rem;font-family:'Sofia Sans', system-ui, sans-serif}.ds-nav a{color:oklch(0.965 0.01 160);font-weight:600;text-decoration:none;padding-block:.4rem;background:linear-gradient(oklch(0.72 0.13 55),oklch(0.72 0.13 55)) 0 100%/0 2px no-repeat;transition:background-size .35s cubic-bezier(.22,1,.36,1)}.ds-nav a:hover,.ds-nav a[aria-current=page]{background-size:100% 2px}"
+    },
+    {
+      "name": "Price List Row",
+      "kind": "custom",
+      "refersTo": "price-row",
+      "description": "Signature ledger row: name, dotted leader, price, inclusions with copper squares.",
+      "html": "<div class=\"ds-row\"><div class=\"ds-line\"><b>Лендинг</b><i></i><b class=\"ds-price\">30 000 ₽</b></div><ul><li>Дизайн под ваш стиль</li><li>3 правки</li><li>Срок 14 дней</li></ul></div>",
+      "css": ".ds-row{background:oklch(0.966 0.009 160);color:oklch(0.21 0.035 168);padding:1.5rem;font-family:'Sofia Sans', system-ui, sans-serif;border-top:3px solid oklch(0.21 0.035 168)}.ds-line{display:flex;align-items:baseline;gap:.9rem}.ds-line b{font-family:'Sofia Sans Extra Condensed', 'Arial Narrow', sans-serif;font-weight:800;font-size:2.25rem;line-height:.95;text-transform:uppercase}.ds-line i{flex:1;height:.5rem;align-self:flex-end;margin-bottom:.3em;background:radial-gradient(circle,currentColor 1.6px,transparent 1.9px) left center/11px 100% repeat-x;opacity:.4}.ds-price{color:oklch(0.52 0.12 45);font-variant-numeric:tabular-nums}.ds-row ul{display:flex;flex-wrap:wrap;gap:.45rem 1.5rem;list-style:none;padding:0;margin:1rem 0 0;font-weight:600;font-size:.975rem}.ds-row li{display:flex;align-items:center;gap:.55rem}.ds-row li::before{content:'';width:.45rem;height:.45rem;background:oklch(0.72 0.13 55)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Ural Workshop",
+    "overview": "A turnkey website studio from Yekaterinburg, told through the objects of its region: polished banded malachite, rose copper, and the heavy condensed lettering of the city’s constructivist posters. The site is built like a workshop door: scrolling turns the copper key and swings the malachite leaves open onto a wall of real work. After the door, everything is a well-kept ledger.",
+    "keyCharacteristics": [
+      "Real material, not imitation: malachite and copper exist only as rendered images.",
+      "Constructivist poster type: Sofia Sans Extra Condensed 800, uppercase, at most 6rem.",
+      "One action color: copper on ink, never copper text on stone at body size.",
+      "Ledger structures over cards: price list rows, a 14-column day grid, ruled quotes.",
+      "One authored motion: the key turn and door swing, tied to scroll; everything else is still or nearly still."
+    ],
+    "rules": [
+      {
+        "name": "The Copper Means Action Rule",
+        "body": "Copper fills only what can be pressed, plus the offer line, prices, proof numbers and schedule bars. It never decorates.",
+        "section": "colors"
+      },
+      {
+        "name": "The Real Stone Rule",
+        "body": "Malachite and copper appear as rendered images. They are never imitated with CSS gradients, bevels, glows or textures.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tint Before Text Rule",
+        "body": "Text never sits on raw malachite. The stone is tinted to at least 85% Malachite Night under the text column, so body text keeps 4.5:1 against the brightest band.",
+        "section": "colors"
+      },
+      {
+        "name": "The Poster Ceiling Rule",
+        "body": "Display type never exceeds 6rem and never goes below -0.005em tracking. Scale comes from width and weight, not from size.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ledger Numerals Rule",
+        "body": "Prices and day numbers use lining tabular numerals so columns align.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "Do use the rendered key, stone and object images for every material surface; generate new ones in the same copper and malachite set when a new object is needed.",
+      "Do keep copper for actions and key numbers, with Ink text on copper.",
+      "Do set headlines in Sofia Sans Extra Condensed 800 uppercase at 6rem or less.",
+      "Do tint malachite to at least 85% under any text.",
+      "Do prefer ledger structures (rows, rules, leaders, grids) over cards."
+    ],
+    "donts": [
+      "Don't imitate malachite or copper with CSS gradients, bevels, glows or noise.",
+      "Don't put a small uppercase label above section headings.",
+      "Don't add colored glows, radial halos or decorative stripes on the dark grounds.",
+      "Don't use a warm cream or beige ground; light grounds are Mineral White, tinted toward malachite.",
+      "Don't add infinite marquees; the work wall moves only with the door."
+    ]
+  }
+}
